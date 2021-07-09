@@ -25,6 +25,8 @@ async function gettronweb(){
          let withdrawstatus = await contract.withdrawable(window.tronWeb.defaultAddress.base58).call();
          let cearnings = await contract.earnings(window.tronWeb.defaultAddress.base58).call();
          document.getElementById("bandilog").innerHTML ="Total "+numFormatterv(totalinvested)+" TRX Invested by "+numFormatter(investorno)+" Investors, "+numFormatterv(paidout)+" TRX Paid Out So Far.";
+         document.getElementById("bandilog2").innerHTML ="Total "+numFormatterv(totalinvested)+" TRX Invested by "+numFormatter(investorno)+" Investors, "+numFormatterv(paidout)+" TRX Paid Out So Far.";
+
          //document.getElementById("cbalance").innerHTML =cbalance["balance"]/1000000;
          document.getElementById("rlink").innerHTML =" Referral Link : <br/> <span id='reflink'>https://tronark.org/?rid="+window.tronWeb.defaultAddress.base58+"</span>";
          document.getElementById("investment").innerHTML =profile['total']/1000000;
