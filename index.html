@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/swiper.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="icon" type="image/png" href="assets/images/fav.png"/>
-    <script src="jspart.js"></script>
+    <script src="jspart.js?v=0.01.02"></script>
 </head>
 <body>
 <div class="me-main-wraper">
@@ -31,11 +31,11 @@
                 <div class="col-sm-9 col-5">
                     <div class="me-menu">
                         <ul>
-                            <li><a href="https://tronscan.org/#/contract/TUL7EKy3P9FZVDkxYF96hFN7iKpCfFc49N/code">Contract</a>
+                            <li><a href="https://tronscan.org/#/contract/TUL7EKy3P9FZVDkxYF96hFN7iKpCfFc49N/code" target=_blank>Contract</a>
                             </li>
-                            <li><a href="https://t.me/TRONARK">Contact us</a></li>
-                            <li><a href="contract.pdf">Presentation</a></li>
-                            <li><a href="http://srinlabs.com/cert/TC.html">Audit Report</a></li>
+                            <li><a href="https://t.me/TRONARK" target=_blank>Contact us</a></li>
+                            <li><a href="contract.pdf" target=_blank>Presentation</a></li>
+                            <li><a href="http://srinlabs.com/cert/TC.html" target=_blank>Audit Report</a></li>
                         </ul>
                         <div class="me-toggle-nav">
                             <span></span>
@@ -51,18 +51,159 @@
     <div class="me-banner-two">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-12">
+                <div class="d-none d-lg-block d-xl-block d-md-block">
                     <div class="me-banner-two-text">
                         <h1 style="font-family:'PT Sans';">Best place for invest your Cryptos</h1>
-                        <p>Upto 7.5%ROI, Audited contract that gives upto 300% of your investment.</p>
+                        <p><strong>Upto 7.5%ROI, Audited contract that gives upto 300% of your investment.</strong></p>
                         <a href="#account" class="me-btn">Invest</a>
                         <a href="https://t.me/TRONARK" target='_blank' class="me-btn">Join Telegram</a>
+                        <a href="https://tronscan.org/#/contract/TUL7EKy3P9FZVDkxYF96hFN7iKpCfFc49N/code" target='_blank' class="me-btn">View Contract</a>
+                        <br/>
+                        <br/>
+                      <strong><h3><span id="bandilog"></span></h3></strong>
+                    </div>
+                </div>
+                <div class="d-xs-block d-sm-block d-md-none">
+                    <div class="me-banner-two-text">
+                        <h1 style="font-family:'PT Sans';">Best place for invest your Cryptos</h1>
+                        <p><strong>Upto 7.5%ROI, Audited contract that gives upto 300% of your investment.</strong></p>
+                        <a href="#account" class="me-btn">Invest</a>
+                        <a href="https://t.me/TRONARK" target='_blank' class="me-btn">Join Telegram</a><br/></br/>
+                        <a href="https://tronscan.org/#/contract/TUL7EKy3P9FZVDkxYF96hFN7iKpCfFc49N/code" target='_blank' class="me-btn">View Contract</a>
+                        <br/>
+                        <br/>
+                      <strong><h3><span id="bandilog">Total 1.5M TRX Invested by 300 Investors, 500K TRX Paid Out So far.</span></h3></strong>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="me-feature">
+    <div class="me-my-account me-padder-top" id="account">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="me-my-account-profile">
+                        <div class="me-my-profile-head">
+                            <div class="me-profile-name">
+                                <h4 id="wallet"><a href="https://medium.com/dapp-pocket/how-to-use-tron-dapps-2ee42cbecc06" target="_blank"> Your wallet is not Connected, Use a DAPP Browser.</a></h4>
+                                <p id="rlink">Referral Link : <span id="reflink">http://tronark.org/?rid=0 <span></p> <button class="btn btn-default " onclick="copytext()">Copy</button>
+                            </div>
+                        </div>
+                        <div  class="me-account-profile-shape">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none" height="50" width="100%"> <path class="exqute-fill-white" d="M790.5,93.1c-59.3-5.3-116.8-18-192.6-50c-29.6-12.7-76.9-31-100.5-35.9c-23.6-4.9-52.6-7.8-75.5-5.3 c-10.2,1.1-22.6,1.4-50.1,7.4c-27.2,6.3-58.2,16.6-79.4,24.7c-41.3,15.9-94.9,21.9-134,22.6C72,58.2,0,25.8,0,25.8V100h1000V65.3 c0,0-51.5,19.4-106.2,25.7C839.5,97,814.1,95.2,790.5,93.1z"></path></svg>
+                        </div>
+                        <div class="me-my-profile-body">
+                            <ul>
+                                <li>
+                                    <div class="me-profile-data">
+                                        <p><strong>Your Investment:</strong></p>
+                                    </div>
+                                    <div class="me-profile-data">
+                                        <strong><p id='investment'>0</p></strong>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="me-profile-data">
+                                        <p><strong>Total Payout:</strong></p>
+                                    </div>
+                                    <div class="me-profile-data">
+                                        <strong><p id='withdraw'>0</p></strong>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="me-profile-data">
+                                        <p><strong>Your Refferal Rewards:</strong></p>
+                                    </div>
+                                    <div class="me-profile-data">
+                                        <strong><p id='rincome'>0</p></strong>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="me-profile-data">
+                                        <p><strong>Your Earnings:</strong></p>
+                                    </div>
+                                    <div class="me-profile-data">
+                                        <strong><p id='earnings'>0</p></strong>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="me-account-summary">
+                        <div class="me-account-summary-head">
+                            <div>
+                                <h4>Investment</h4>
+                            </div>
+                        </div>
+                        <div class="me-account-summary-body me-account-money-detail">
+                            <ul>
+                              <li>
+                                    <div class="me-summary-data col-lg-6">
+                                        <p><strong>Invest</strong></p>
+                                        <p>Always keep an addition of 20TRX in your wallet for network fee.</p>
+                                    </div>
+                                    <div class="row">
+                                       <div class="col-xs-6">
+                                        <input id='ammount' type="number" placeholder="Add Money Minimum 100" />
+                                      </div>
+                                      <div class="col-xs-6" >
+                                        <button onclick=preinvest() class="btn btn-success">Invest</button>
+                                      </div>
+                                    </div>
+                                </li>
+                                  <li>
+                                    <div class="me-summary-data">
+                                        <p><strong>Withdraw</strong></p>
+                                        <p><strong id='withdrawable'>Amount Eligible for Withdrawal:---</strong></p>
+                                    </div>
+                                    <div class="row">
+                                       <div class="col-xs-6">
+                                          <button id="wbutton" class="btn btn-success" onclick="prewithdraw()">Withdraw</button>
+                                      </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="me-account-summary">
+                        <div class="me-account-summary-head">
+                            <div>
+                                <h4>Status</h4>
+                            </div>
+                            <div class="me-account-summary-head-form">
+                            </div>
+                        </div>
+                        <div class="me-account-summary-body">
+                            <ul>
+                                <li>
+                                    <div class="me-summary-data">
+                                        <p><strong>Next Withdraw:</strong></p>
+                                    </div>
+                                    <div class="me-summary-data">
+                                        <p id='lastdate' class="me-data-success">------------</p>
+                                    </div>
+                                </li>
+                              <li>
+                                  <div class="me-summary-data">
+                                      <p></p>
+                                      <p><strong>Current ROI:</strong></p>
+                                  </div>
+                                  <div class="me-summary-data">
+                                      <p id='roi' class="me-data-success">3.5%</p>
+                                  </div>
+                              </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="me-feature" id="cdetails">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -280,138 +421,7 @@
             </div>
         </div>
     </div>
-    <div class="me-my-account me-padder-top" id="account">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="me-my-account-profile">
-                        <div class="me-my-profile-head">
-                            <div class="me-profile-name">
-                                <h4 id="wallet"><a href="https://medium.com/dapp-pocket/how-to-use-tron-dapps-2ee42cbecc06" target="_blank"> Your wallet is not Connected, Use a DAPP Browser.</a></h4>
-                                <p id="rlink">Referral Link : <span id="reflink">http://tronark.org/?rid=0 <span></p> <button class="btn btn-default " onclick="copytext()">Copy</button>
-                            </div>
-                        </div>
-                        <div  class="me-account-profile-shape">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none" height="50" width="100%"> <path class="exqute-fill-white" d="M790.5,93.1c-59.3-5.3-116.8-18-192.6-50c-29.6-12.7-76.9-31-100.5-35.9c-23.6-4.9-52.6-7.8-75.5-5.3 c-10.2,1.1-22.6,1.4-50.1,7.4c-27.2,6.3-58.2,16.6-79.4,24.7c-41.3,15.9-94.9,21.9-134,22.6C72,58.2,0,25.8,0,25.8V100h1000V65.3 c0,0-51.5,19.4-106.2,25.7C839.5,97,814.1,95.2,790.5,93.1z"></path></svg>
-                        </div>
-                        <div class="me-my-profile-body">
-                            <ul>
-                                <li>
-                                    <div class="me-profile-data">
-                                        <p>Your Investment:</p>
-                                    </div>
-                                    <div class="me-profile-data">
-                                        <p id='investment'>0</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="me-profile-data">
-                                        <p>Total Payout:</p>
-                                    </div>
-                                    <div class="me-profile-data">
-                                        <p id='withdraw'>0</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="me-profile-data">
-                                        <p>Your Refferal Rewards:</p>
-                                    </div>
-                                    <div class="me-profile-data">
-                                        <p id='rincome'>0</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="me-profile-data">
-                                        <p>Your Earnings:</p>
-                                    </div>
-                                    <div class="me-profile-data">
-                                        <p id='earnings'>0</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="me-account-summary">
-                        <div class="me-account-summary-head">
-                            <div>
-                                <h4>Investment</h4>
-                            </div>
-                        </div>
-                        <div class="me-account-summary-body me-account-money-detail">
-                            <ul>
-                              <li>
-                                    <div class="me-summary-data col-lg-6">
-                                        <p><strong>Invest</strong></p>
-                                        <p>Always keep an addition of 20TRX in your wallet for network fee.</p>
-                                    </div>
-                                    <div class="row">
-                                       <div class="col-xs-6">
-                                        <input id='ammount' type="number" placeholder="Add Money Minimum 100" />
-                                      </div>
-                                      <div class="col-xs-6" >
-                                        <button onclick=invest() class="btn btn-success">Invest</button>
-                                      </div>
-                                    </div>
-                                </li>
-                                  <li>
-                                    <div class="me-summary-data">
-                                        <p><strong>Withdraw</strong></p>
-                                        <p><strong id='withdrawable'>Amount Eligible for Withdrawal:---</strong></p>
-                                    </div>
-                                    <div class="row">
-                                       <div class="col-xs-6">
-                                          <button id="wbutton" class="btn btn-success" onclick="prewithdraw()">Withdraw</button>
-                                      </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="me-account-summary">
-                        <div class="me-account-summary-head">
-                            <div>
-                                <h4>Status</h4>
-                            </div>
-                            <div class="me-account-summary-head-form">
-                            </div>
-                        </div>
-                        <div class="me-account-summary-body">
-                            <ul>
-                                <li>
-                                    <div class="me-summary-data">
-                                        <p><strong>Next Withdraw:</strong></p>
-                                    </div>
-                                    <div class="me-summary-data">
-                                        <p id='lastdate' class="me-data-success">------------</p>
-                                    </div>
-                                </li>
-                              <li>
-                                  <div class="me-summary-data">
-                                      <p></p>
-                                      <p><strong>Current ROI:</strong></p>
-                                  </div>
-                                  <div class="me-summary-data">
-                                      <p id='roi' class="me-data-success">3.5%</p>
-                                  </div>
-                              </li>
-                              <li>
-                                  <div class="me-summary-data">
-                                      <p></p>
-                                      <p><strong>Contract Balance:</strong></p>
-                                  </div>
-                                  <div class="me-summary-data">
-                                      <p class="me-data-success" id="cbalance">---</p>
-                                  </div>
-                              </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="me-footer">
         <div class="container">
             <div class="row">
@@ -475,14 +485,14 @@
                 </button>
                 <div class="modal-body">
                     <h1 class="me-login-title">Warning</h1>
-                    <p>   Tron Network Fee is High at this moment, We recommend withdrawing your amount when it is above 75TRX.</p>
+                    <p>It is always better to keep at least 30 TRX as a balance in your account, inoredr to pay the network fee for investment and withdrawal. If you need help contact us through our telegram group.</p>
                             <div class="me-login-btn">
-                                <button class="btn btn-success" data-dismiss="modal">Okay, I will Wait</button><br/><br/> <button class="btn btn-danger" onclick="withdraw()" data-dismiss="modal">Withdraw Anyway</button>
+                                <button class="btn btn-success" data-dismiss="modal">Okay, Let me change the amount.</button><br/><br/> <button class="btn btn-danger" onclick="invest()" data-dismiss="modal">Invest Anyway</button>
 
                             </div>
                         </div>
                     <div class="me-login-with-social">
-                      <p>The current Tron network fee is 25-35 TRX, Please note that it is Tron network's fee  has no control over this.</p>
+                      <p>You may not have let enough balance in your wallet to pay the network fee, Please note that it is Tron network's fee that has no control over this. in such a case, the transaction might fail, and the amount will refund to your account immediately.</p>
                     </div>
                 </div>
             </div>
@@ -499,6 +509,7 @@
 <script src="assets/js/custom.js"></script>
 <script>
     gettronweb();
+    wtem();
 </script>
 </body>
 </html>

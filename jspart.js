@@ -1,19 +1,35 @@
 const trc20ContractAddress = "TUL7EKy3P9FZVDkxYF96hFN7iKpCfFc49N";
 var timestamps="";
 var wstat=false;
+
+function numFormatter(num) {
+  str = num.toLocaleString("en-US");
+      return str; // if value < 1000, nothing to do
+}
+
+function numFormatterv(numd) {
+  num=parseInt(numd/1000000);
+    str = num.toLocaleString("en-US");
+        return str; // if value < 1000, nothing to do
+}
+
 async function gettronweb(){
      if(window.tronWeb && window.tronWeb.defaultAddress.base58){
          document.getElementById("wallet").innerHTML ="Your wallet : "+window.tronWeb.defaultAddress.base58;
          let contract = await tronWeb.contract().at(trc20ContractAddress);
          let cbalance = await contract.getcontract().call();
-         document.getElementById("cbalance").innerHTML =cbalance["balance"]/1000000;
-         document.getElementById("rlink").innerHTML =" Referral Link : <br/> <span id='reflink'>http://tronark.org/?rid="+window.tronWeb.defaultAddress.base58+"</span>";
+         let totalinvested = await contract.TotalInvested().call();
+         paidout=totalinvested-cbalance["balance"];
+         investorno=parseInt(cbalance["totalinvestors"]);
          let profile = await contract.getuser(window.tronWeb.defaultAddress.base58).call();
+         let withdrawstatus = await contract.withdrawable(window.tronWeb.defaultAddress.base58).call();
+         let cearnings = await contract.earnings(window.tronWeb.defaultAddress.base58).call();
+         document.getElementById("bandilog").innerHTML ="Total "+numFormatterv(totalinvested)+" TRX Invested by "+numFormatter(investorno)+" Investors, "+numFormatterv(paidout)+" TRX Paid Out So Far.";
+         //document.getElementById("cbalance").innerHTML =cbalance["balance"]/1000000;
+         document.getElementById("rlink").innerHTML =" Referral Link : <br/> <span id='reflink'>http://tronark.org/?rid="+window.tronWeb.defaultAddress.base58+"</span>";
          document.getElementById("investment").innerHTML =profile['total']/1000000;
          document.getElementById("withdraw").innerHTML =profile['totalwithdrawn']/1000000;
          document.getElementById("rincome").innerHTML =profile['refreward']/1000000;
-         let withdrawstatus = await contract.withdrawable(window.tronWeb.defaultAddress.base58).call();
-         let cearnings = await contract.earnings(window.tronWeb.defaultAddress.base58).call();
          document.getElementById("earnings").innerHTML = parseInt(cearnings["total"])/1000000;
          if(withdrawstatus["status"]==true){
            document.getElementById("withdrawable").innerHTML ="Amount Eligible for Withdrawal: "+withdrawstatus["total"]/1000000;
@@ -48,6 +64,24 @@ async function gettronweb(){
 
      setTimeout(gettronweb, 5000);
  }
+async function preinvest(){
+  try {
+    userbalance=await window.tronWeb.trx.getBalance(window.tronWeb.defaultAddress.base58)/1000000;
+    userinputs=document.getElementById("ammount").value;
+    if ((userbalance-userinputs)< 20){
+      //call modal
+      $('#wth').modal('show');
+    }
+    else{
+      invest();
+    }
+
+  }
+  catch(err) {
+    console.log(err.message);
+    invest();
+  }
+}
 async function invest(){
 // Arrow function to get the parameter
 // of the specified key
@@ -114,7 +148,7 @@ var m = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
 var s = Math.floor((d % (1000 * 60)) / 1000);
 document.getElementById("lastdate").innerHTML = da + "d " + h + "h "
 + m + "m " + s + "s ";
-if(d<=0){
+if(d<=0 || wstat==true){
   document.getElementById("lastdate").innerHTML = "Ready";
 }
 }, 1000);
@@ -128,4 +162,21 @@ function copytext() {
   document.execCommand("copy");
   temp.remove();
   alert("Text Copied!");
+  }
+async function wtem(){
+  try {
+      var balance=await window.tronWeb.trx.getBalance(window.tronWeb.defaultAddress.base58)/1000000;
+  }
+  catch(err) {
+    //location.reload();
+  }
+  var investablebal=balance-30;
+  if(investablebal<100){
+    var valammount=100;
+  }
+  else{
+      var valammount=Math.round(investablebal);
+  }
+  var inputF = document.getElementById("ammount");
+  inputF.value = valammount;
   }
