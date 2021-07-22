@@ -1,6 +1,7 @@
 const trc20ContractAddress = "TUL7EKy3P9FZVDkxYF96hFN7iKpCfFc49N";
 var timestamps="";
 var wstat=false;
+var limit=0;
 
 function numFormatter(num) {
   str = num.toLocaleString("en-US");
@@ -32,6 +33,7 @@ async function gettronweb(){
          document.getElementById("investment").innerHTML =profile['total']/1000000;
          document.getElementById("withdraw").innerHTML =profile['totalwithdrawn']/1000000;
          document.getElementById("rincome").innerHTML =profile['refreward']/1000000;
+         window.limit=parseInt(profile['noofdeposits']);
          document.getElementById("earnings").innerHTML = parseInt(cearnings["total"])/1000000;
          if(withdrawstatus["status"]==true){
            document.getElementById("withdrawable").innerHTML ="Amount Eligible for Withdrawal: "+withdrawstatus["total"]/1000000;
@@ -67,6 +69,10 @@ async function gettronweb(){
      setTimeout(gettronweb, 5000);
  }
 async function preinvest(){
+  if(limit>=20){
+    $('#warning').modal('show');
+    return false;
+  }
   try {
     userbalance=await window.tronWeb.trx.getBalance(window.tronWeb.defaultAddress.base58)/1000000;
     userinputs=document.getElementById("ammount").value;
